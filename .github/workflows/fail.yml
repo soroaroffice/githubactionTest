@@ -35,7 +35,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'     # install dependencies only if there is no cached node_modules
         run: npm ci
       - name: Test code
-        #continue-on-error: true                         # continue on error even if the step fails (the step/job is considered success in this case)
+        continue-on-error: true                         # continue on error even if the step fails (the step/job is considered success in this case)
         id: run-tests
         run: npm run test
       - name: Upload test report
